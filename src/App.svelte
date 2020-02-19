@@ -1,7 +1,7 @@
 <script>
-	import Index from './Index.svelte'
-	import Nav from './Nav.svelte'
-	import Banner from './Banner.svelte'
+	import Index from './routes/Index.svelte'
+	import Nav from './routes/Nav.svelte'
+	import Banner from './routes/Banner.svelte'
 
 	let title = "AI FOR SOCIAL GOOD"
 </script>

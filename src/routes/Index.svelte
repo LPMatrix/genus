@@ -1,7 +1,24 @@
 <script type="text/javascript">
+  import { Router, Route } from "svelte-routing";
+  export let url = "";
+
   import Hero from './Hero.svelte'
+  import Footer from './Footer.svelte'
 
   let title = "Applying AI to some of the world’s biggest challenges through research, engineering, and initiatives to build the AI ecosystem,using AI to address societal challenges."
+
+  let projects = [
+    {
+      "name":"Diabetic Retinopathy Detection",
+      "description": "a model with realistic clinical potential for automated diabetic retinopathy screening using machine learning with colour fundus photographs as input.",
+      "url": "retinopathy"
+    },
+    {
+      "name":"Malaria Detection",
+      "description": "A deep neural network model introduced for identifying infected falciparum malaria parasite using transfer learning approach.",
+      "url": "malaria"
+    }
+  ]
 </script>
 
 <Hero title = {title} />
@@ -17,57 +34,22 @@
             </div>
           </div>
           <div class="owl-carousel owl-all">
-            <a href="/retinopathy" target="_blank">
-              <div class="block__35630">
-                <div class="icon mb-0">
-                  <span class="flaticon-ferry"></span>
+            <Router url="{url}">
+            {#each projects as project}
+              <Link to="/{project.url}" target="_blank">
+                <div class="block__35630">
+                  <div class="icon mb-0">
+                    <span class="flaticon-ferry"></span>
+                  </div>
+                  <h3 class="mb-3">{project.name}</h3>
+                  <p>{project.description}</p>
                 </div>
-                <h3 class="mb-3">Diabetic Retinopathy Detection</h3>
-                <p>Genus is easily accessible over the internet on the web. </p>
+              </Link>
+              <div>
+                <Route path="/{project.url}" component="{project.url}" />
               </div>
-            </a>
-            <a href="/malaria">
-              <div class="block__35630">
-                <div class="icon mb-0">
-                  <span class="flaticon-airplane"></span>
-                </div>
-                <h3 class="mb-3">Malaria Classiication</h3>
-                <p>Genus is very easy to use. Just upload your fondus image and click classify </p>
-              </div>
-            </a>
-
-           <!--  <div class="block__35630">
-              <div class="icon mb-0">
-                <span class="flaticon-box"></span>
-              </div>
-              <h3 class="mb-3">Accuracy</h3>
-              <p>Genus effectively achieve a high accuracy of 72.6%. </p>
-            </div>
-
-            <div class="block__35630">
-              <div class="icon mb-0">
-                <span class="flaticon-lorry"></span>
-              </div>
-              <h3 class="mb-3">Light weight</h3>
-              <p>The Genus network is a light one compared to other approaches. </p>
-            </div>
-
-            <div class="block__35630">
-              <div class="icon mb-0">
-                <span class="flaticon-warehouse"></span>
-              </div>
-              <h3 class="mb-3">Performance</h3>
-              <p>Genus is very fast in detecting retinopathy in retinal images. </p>
-            </div>
-
-            <div class="block__35630">
-              <div class="icon mb-0">
-                <span class="flaticon-add"></span>
-              </div>
-              <h3 class="mb-3">low latency</h3>
-              <p>Genus is able to make inference using minimal computing power. </p>
-            </div> -->
-
+            {/each}
+          </Router>
           </div>
         </div>
       </div>
@@ -126,28 +108,4 @@
       </div>
     </div>
 
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="row">
-              <div class="col-md-7">
-                <h2 class="footer-heading mb-4">About Us</h2>
-                <p>A model with realistic clinical potential for automated diabetic retinopathy screening using image recognition, pattern recognition and machine learning using colour fundus photographs as input. </p>
-              </div>
-
-            </div>
-          </div>
-          <div class="col-md-4 ml-auto">
-
-
-            <h2 class="footer-heading mb-4">Follow Us</h2>
-            <a href="https://github.com/LPMatrix" class="smoothscroll pl-0 pr-3"><span class="icon-github"></span></a>
-            <a href="https://twitter.com/WeirdMatrix" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-            <a href="https://www.linkedin.com/in/matrix2552/" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-          </div>
-        </div>
-
-      </div>
-    </footer>
+<Footer />

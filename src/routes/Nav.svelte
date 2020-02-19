@@ -1,3 +1,7 @@
+<script type="text/javascript">
+    import { Router, Route } from "svelte-routing";
+</script>
+
     <div class="site-wrap" id="home-section">
 
       <div class="site-mobile-menu site-navbar-target">
@@ -24,7 +28,7 @@
 
                 <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                   <li><a href="#home-section" class="nav-link">Home</a></li>
-                  <li><a href="#about-section" class="nav-link">Demo</a></li>
+                  <li><a href="#services-section" class="nav-link">Apps</a></li>
                   <li><a href="#contact-section" class="nav-link">Contact</a></li>
                 </ul>
               </nav>
