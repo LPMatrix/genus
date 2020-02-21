@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  import { Router, Route } from "svelte-routing";
+  import { Router, Route, Link } from "svelte-routing";
   export let url = "";
 
   import Hero from './Hero.svelte'
@@ -45,11 +45,9 @@
                   <p>{project.description}</p>
                 </div>
               </Link>
-              <div>
-                <Route path="/{project.url}" component="{project.url}" />
-              </div>
+              <Route path="/{project.url}" component="{project.url.charAt(0).toUpperCase() + project.url.substring(1)}" />
             {/each}
-          </Router>
+            </Router>
           </div>
         </div>
       </div>
